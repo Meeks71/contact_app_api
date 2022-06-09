@@ -1,0 +1,31 @@
+const mongoose = require("mongoose");
+
+const contactSchema = mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+
+  email: {
+    type: String,
+    required: false,
+  },
+
+  phone: {
+    type: String,
+    required: true,
+  },
+
+  contactType: {
+    type: String,
+    required: true,
+    default: "Personal",
+  },
+
+  created_at: {
+    type: Date,
+    default: Date.now(),
+  },
+});
+
+module.exports = mongoose.model("Contacts", contactSchema);
